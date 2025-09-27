@@ -5,9 +5,12 @@ import { Search, Home, Archive, Inbox, Plus, FileText } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { cn } from "@/lib/utils"
+import { useQuery } from "convex/react"
+import { api } from "../../convex/_generated/api"
 
 export function Sidebar() {
   const [activeItem, setActiveItem] = useState("home")
+  const user = useQuery(api.users.getCurrentUser)
 
   const navigationItems = [
     { id: "home", label: "Home", icon: Home },
@@ -22,10 +25,9 @@ export function Sidebar() {
       {/* Header */}
       <div className="p-4 border-b border-sidebar-border">
         <div className="flex items-center gap-3 mb-3">
-          <div className="w-7 h-7 flex items-center justify-center bg-card border-2 opacity-90 rounded-full shadow-md">
-            
-          </div>
-          <span className="text-sidebar-foreground text-sm font-semibold">Hello, &lt;User&gt;</span>
+          <span className="text-sidebar-foreground text-xl font-semibold text-foreground">
+            Hello, {user?.fullName || user?.firstName || "User"}
+          </span>
         </div>
 
         {/* Search */}

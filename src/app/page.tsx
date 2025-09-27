@@ -2,6 +2,8 @@
 
 import { Button } from "@/components/ui/button";
 import { PaperPlaneIcon, GearIcon } from "@radix-ui/react-icons";
+import { Authenticated, Unauthenticated } from "convex/react";
+import Link from "next/link";
 
 export default function HomePage() {
   return (
@@ -39,12 +41,26 @@ export default function HomePage() {
         </p>
 
         {/* CTA Button */}
-        <Button
-          size="lg"
-          className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 text-lg rounded-lg shadow-lg hover:shadow-xl transition-all duration-200"
-        >
-          Try for free
-        </Button>
+        <Unauthenticated>\
+          <Link href={"/sign-in"}>
+          <Button
+            size="lg"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 text-lg rounded-lg shadow-lg hover:shadow-xl transition-all duration-200"
+          >
+            Try for free
+          </Button>
+          </Link>
+        </Unauthenticated>
+        <Authenticated>
+        <Link href={"/dashboard"}>
+          <Button
+            size="lg"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 text-lg rounded-lg shadow-lg hover:shadow-xl transition-all duration-200"
+          >
+            Get Started
+          </Button>
+        </Link>
+        </Authenticated>
       </main>
     </div>
   );

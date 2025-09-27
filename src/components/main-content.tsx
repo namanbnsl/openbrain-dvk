@@ -42,7 +42,7 @@ export function MainContent() {
                 "px-3 py-2 text-sm font-medium border-b-2 transition-colors",
                 activeTab === tab.id
                   ? "text-foreground border-accent"
-                  : "text-muted-foreground border-transparent hover:text-foreground",
+                  : "text-muted-foreground border-transparent",
               )}
             >
               {tab.label}
@@ -61,12 +61,12 @@ export function MainContent() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            <Card className="p-6 border-2 border-dashed border-border hover:border-accent/50 transition-colors cursor-pointer group">
+            <Card className="p-6 border-2 border-dashed border-border cursor-pointer group">
               <div className="flex flex-col items-center text-center">
-                <div className="w-10 h-10 bg-muted rounded-xl flex items-center justify-center mb-3 group-hover:bg-accent/10 transition-colors">
-                  <FolderPlus className="w-5 h-5 text-muted-foreground group-hover:text-accent transition-colors" />
+                <div className="w-10 h-10 bg-muted rounded-xl flex items-center justify-center mb-3">
+                  <FolderPlus className="w-5 h-5 text-muted-foreground" />
                 </div>
-                <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">
+                <span className="text-sm font-medium text-muted-foreground">
                   Create folder
                 </span>
               </div>
